@@ -16,20 +16,61 @@ generateBtn.addEventListener("click", writePassword);
 
 
 function generatePassword() {
-  confirms();
-
-  if () {
-
-  }
-
-
+  
+  
   var length =prompt("How many characters -between 8 & 128- would you like your password to contain?");
   console.log(length);
   if (length < 8 || length > 128) {
     alert ("Please only make the length between 8 to 128 characters!")
   generatePassword();
   }
-  var myPassword ="";
+    //Lower case letters
+    var lCharactersArray = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+    var lCharactersPrompt = confirm('Would you like to use lowercase letters? Enter "YES" or "NO" to choose.');
+    console.log(lCharactersPrompt);
+  
+    //Upper case letters
+    var ucCharactersArray = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
+    var ucCharactersPrompt= confirm("Would you like to use uppercase letters?");
+    console.log(ucCharactersPrompt);
+  
+    //Numeric characters
+    var numCharactersArray = Math.floor(Math.random() * 10)
+    var numCharactersPrompt = confirm("Would you like to use numeric characters?");
+    console.log(numCharactersPrompt);
+  
+    //Special characters
+    var sCharactersArray = ['!','@','#','$','%','&','*']
+    var sCharactersPrompt = confirm("Would you like to use special characters?");
+    console.log(sCharactersPrompt);
+   
+    if (!sCharactersPrompt && !numCharactersPrompt && !ucCharactersPrompt && !lCharactersPrompt) {
+      alert ('please chose one of specified characters')
+      generatePassword();
+    }
+
+
+    var passwordArray = []; 
+    for (let i = 0; i < length; i++) {
+      var characterSelctor = Math.floor(Math.random() * 4)
+      if (characterSelctor === 0 && sCharactersPrompt){
+        var item = sCharactersArray[Math.floor(Math.random() * 7)]
+        passwordArray.push(item);
+      } else if (characterSelctor === 1 && ucCharactersPrompt){
+        var item = ucCharactersArray[Math.floor(Math.random() * 26)]
+        passwordArray.push(item);
+      } else if (characterSelctor === 2 && lCharactersPrompt){
+        var item = lCharactersArray[Math.floor(Math.random() * 26)]
+        passwordArray.push(item) 
+      } else if (characterSelctor === 3 && numCharactersPrompt){
+        var item =  Math.floor(Math.random() * 10 )
+        passwordArray.push(item)
+    } else {
+      i--
+    }
+  }
+
+  var myPassword = passwordArray.join("");
   return myPassword;
 };
 
@@ -63,52 +104,6 @@ function generatePassword() {
 // Assignment code here
 
 
-
-//
-
-function confirms () {
-  //Lower case letters
-  var lCharactersArray = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
-  var lCharactersPrompt = confirms('Would you like to use lowercase letters? Enter "YES" or "NO" to choose.');
-  console.log(lCharactersPrompt);
-
-  //Upper case letters
-  var ucCharactersArray = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
-  var ucCharactersPrompt= confirm("Would you like to use uppercase letters?");
-  console.log(ucCharacters);
-
-  //Numeric characters
-  var numCharactersArray = Math.floor(Math.random() + 9 )
-  var numCharactersPrompt = confirm("Would you like to use numeric characters?");
-  console.log(numCharacters);
-
-  //Special characters
-  var sCharactersArray = ['!','@','#','$','%','&','*']
-  var sCharactersPrompt = confirm("Would you like to use special characters?");
-  console.log(sCharacters);
-
-
-  //if statements 
-  var confirmationArray = []
-
-  if (lCharactersArrayt) {
-    confirmationArray.push('lCharactersArray')
-   }
-
-   if (ucCharactersArray) {
-    confirmationArray.push('ucCharactersArray')
-   }
-
-  if (numCharactersPrompt) {
-    confirmationArray.push('numCharactersArray')
-  }
-
-  if (sCharactersPrompt) {
-   confirmationArray.push('sCharactersPrompt')
-  }
- 
-
-}
 
 // Write password to the #password input
 function writePassword() {
