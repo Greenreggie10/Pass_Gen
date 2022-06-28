@@ -6,7 +6,7 @@
 /*HTML, CSS, & JavaScript*/
 
 <!-- URL to hosted site -->
-
+ https://greenreggie10.github.io/Pass_Gen/      };
 
 <!-- picture of site -->
 ![alt text](/Screenshot%20(10).png)
@@ -20,4 +20,5 @@ REGINALD GREEN GITHUB@GREENREGGIE10
 <!-- updates -->
 "Original Repo"
 "updated README.md"
-
+"java guidlines"
+"final"
