@@ -18,16 +18,16 @@ generateBtn.addEventListener("click", writePassword);
 function generatePassword() {
   
   
-  var length =prompt("How many characters -between 8 & 128- would you like your password to contain?");
-  console.log(length);
+  var length = parseInt(prompt("How many characters -between 8 & 128- would you like your password to contain?"));
+  console.log(typeof length);
   if (length < 8 || length > 128) {
     alert ("Please only make the length between 8 to 128 characters!")
-  generatePassword();
+    return null; 
   }
-    //Lower case letters
-    var lCharactersArray = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
-    var lCharactersPrompt = confirm('Would you like to use lowercase letters? Enter "YES" or "NO" to choose.');
-    console.log(lCharactersPrompt);
+  //Lower case letters
+  var lCharactersArray = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+  var lCharactersPrompt = confirm('Would you like to use lowercase letters? Enter "YES" or "NO" to choose.');
+  console.log(lCharactersPrompt);
   
     //Upper case letters
     var ucCharactersArray = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
@@ -107,7 +107,7 @@ function generatePassword() {
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword( );
+  var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
